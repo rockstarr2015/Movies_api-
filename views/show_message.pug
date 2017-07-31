@@ -1,0 +1,23 @@
+doctype html
+html
+	head
+		include includes/head_script.pug
+		title show_message
+		
+
+	body
+		div.container
+			div.row
+				div.col-md-2
+					
+
+				div.col-md-8
+					br
+					br
+					if(type == "error")
+						h1.text-center("style"="color:red") #{message}
+					else
+						h1.text-center("style= color:blue") #{message}
+					
+
+				div.col-md-2

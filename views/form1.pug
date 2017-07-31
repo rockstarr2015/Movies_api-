@@ -1,0 +1,42 @@
+doctype html
+html
+	head
+		include includes/head_script.pug
+		title form
+		
+
+	body
+		div.container
+			div.row
+				div.col-md-1
+					
+
+				div.col-md-10
+					br
+					h1.text-center Movie REST API
+					br
+					br
+					
+					div.jumbotron
+
+						form(action="/addMovies",method="POST" class="form-horizontal")
+							mixin para1(a)
+								- var k
+								- var n
+								each val in a
+									- k = val.split(' ').join('_')
+									- n = val
+									div.form-group
+										lable(for=k class="col-sm-2 control-label") #{n}:
+										div.col-sm-10
+											input(type="text" class="form-control" placeholder=n name=k)
+
+
+
+							+para1(["Movie name","Ratings","Runtime", "Genre","Imdb_link","Director","Country","Language"])
+							div.form-group
+								div(class="col-sm-offset-2 col-sm-10")
+									button(type = "submit" class="btn btn-primary") Submit
+
+				div.col-md-1
+				

@@ -1,0 +1,71 @@
+doctype html
+html
+	head
+		include includes/head_script.pug
+		title form
+
+		
+		
+
+	body
+		div.container
+			div.row
+				div.col-md-1
+					
+
+				div.col-md-10
+					br
+					h1.text-center Movie REST API
+					br
+					br
+					
+					div.jumbotron
+
+						form(action="/updateMovies",method="POST" class="form-horizontal")
+							input(type="hidden" name="_method" value="PUT")
+
+							div.form-group
+								label Select Catagory
+							
+							
+									
+							br
+							div.form-group
+								select(class="form-control" id="option1")
+									
+									mixin options(a)
+										
+										each val in a
+											option #{val} 
+
+										
+
+									+options(["Movie name","Ratings","Runtime", "Genre","Imdb_link","Director","Country","Language"])
+
+								
+								
+
+								    
+								
+
+								input(type="text" id="key" class="form-control" placeholder="Movie name")
+
+								
+
+							div.form-group
+								div
+
+									button(type = "submit" class="btn btn-primary") Submit
+
+						
+
+				div.col-md-1
+
+		script. 
+			var e = document.getElementById("option1");
+			var selectedOption = e.options[e.selectedIndex].text;
+			console.log(selectedOption);
+
+
+		
+		include includes/body_script.pug
